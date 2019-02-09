@@ -77,6 +77,9 @@
 ;; http://www.emacswiki.org/emacs/InteractivelyDoThings
 (ido-mode t)
 
+;; Allow partial matches
+(setq ido-enable-flex-matching t)
+
 ;; Don't try to match file across all "work" directories; only match files
 ;; in the current directory displayed in the minibuffer
 (setq ido-auto-merge-work-directories-length -1)
