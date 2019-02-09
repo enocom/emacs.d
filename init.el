@@ -69,6 +69,9 @@
 (add-to-list 'load-path "~/.emacs.d/themes")
 ;; (load-theme 'tomorrow-night-eighties t)
 
+;; Changes all yes/no questions to y/n type
+(fset 'yes-or-no-p 'y-or-n-p)
+
 ;; ido-mode allows you to more easily navigate choices. For example,
 ;; when you want to switch buffers, ido presents you with a list
 ;; of buffers in the the mini-buffer. As you start to type a buffer's
