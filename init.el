@@ -80,6 +80,8 @@
 ;; http://www.emacswiki.org/emacs/InteractivelyDoThings
 (ido-mode t)
 
+;; (setq ido-separator "\n")
+
 ;; Allow partial matches
 (setq ido-enable-flex-matching t)
 
@@ -107,6 +109,8 @@
 (projectile-mode +1)
 (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(setq projectile-project-search-path '("~/workspace/"))
+(setq projectile-globally-ignored-directories '("-/target"))
 
 ;; Ace Window
 (require 'ace-window)
