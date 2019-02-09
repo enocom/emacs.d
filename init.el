@@ -63,7 +63,7 @@
     (package-install p)))
 
 ;; increase font size for better readability
-(set-face-attribute 'default nil :height 160)
+(set-face-attribute 'default nil :height 140)
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
@@ -94,7 +94,6 @@
 (setq smex-save-file (concat user-emacs-directory ".smex-items"))
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
-
 
 (setq line-number-mode t)
 
