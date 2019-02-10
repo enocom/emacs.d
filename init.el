@@ -1,45 +1,20 @@
-;; Set up package
+;; Install packages
 (require 'package)
 (add-to-list 'package-archives
              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-
-;; Load and activate emacs packages. Do this first so that the
-;; packages are loaded before you start trying to modify them.
-;; This also sets the load path.
 (package-initialize)
-
-;; Download the ELPA archive description if needed.
-;; This informs Emacs about the latest versions of all packages, and
-;; makes them available for download.
 (when (not package-archive-contents)
   (package-refresh-contents))
-
 (defvar installed-packages
-  '(paredit
-
-    clojure-mode
-
+  '(ace-window
     cider
-
-    magit
-
-    rainbow-delimiters
-
-    ;; Easier window navigation
-    ace-window
-
-    ;; allow ido usage in as many contexts as possible. see
-    ;; customizations/navigation.el line 23 for a description
-    ;; of ido
+    clojure-mode
     ido-completing-read+
-    ;; Enhances M-x to allow easier execution of commands. Provides
-    ;; a filterable list of possible commands in the minibuffer
-    ;; http://www.emacswiki.org/emacs/Smex
-    smex
-    ;; project navigation
+    magit
+    paredit
     projectile
-    ))
-
+    rainbow-delimiters
+    smex))
 ;; On OS X, an Emacs instance started from the graphical user
 ;; interface will have a different environment than a shell in a
 ;; terminal window, because OS X does not run a shell during the
@@ -50,84 +25,23 @@
 ;; https://github.com/purcell/exec-path-from-shell
 (if (eq system-type 'darwin)
     (add-to-list 'installed-packages 'exec-path-from-shell))
-
-;; Sets up exec-path-from shell
-;; https://github.com/purcell/exec-path-from-shell
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize)
-  (exec-path-from-shell-copy-envs
-   '("PATH")))
-
 (dolist (p installed-packages)
   (when (not (package-installed-p p))
     (package-install p)))
 
+;; Configure Emacs generally (non-package-specific stuff)
 ;; increase font size for better readability
 (set-face-attribute 'default nil :height 140)
-
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(add-to-list 'load-path "~/.emacs.d/themes")
-;; (load-theme 'tomorrow-night-eighties t)
-(load-theme 'zenburn t)
-
-;; Changes all yes/no questions to y/n type
-(fset 'yes-or-no-p 'y-or-n-p)
-
-;; ido-mode allows you to more easily navigate choices. For example,
-;; when you want to switch buffers, ido presents you with a list
-;; of buffers in the the mini-buffer. As you start to type a buffer's
-;; name, ido will narrow down the list of buffers to match the text
-;; you've typed in
-;; http://www.emacswiki.org/emacs/InteractivelyDoThings
-(ido-mode t)
-
-;; (setq ido-separator "\n")
-
-;; Allow partial matches
-(setq ido-enable-flex-matching t)
-
-;; Don't try to match file across all "work" directories; only match files
-;; in the current directory displayed in the minibuffer
-(setq ido-auto-merge-work-directories-length -1)
-
-;; This enables ido in all contexts where it could be useful, not just
-;; for selecting buffer and file names
-(ido-ubiquitous-mode 1)
-
-;; Shows a list of buffers
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-
-;; Enhances M-x to allow easier execution of commands. Provides
-;; a filterable list of possible commands in the minibuffer
-;; http://www.emacswiki.org/emacs/Smex
-(setq smex-save-file (concat user-emacs-directory ".smex-items"))
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-
 (setq line-number-mode t)
 (setq column-number-mode t)
 
 ;; Make sure that text files are correctly formatted.
 (setq require-final-newline 'ask)
 
-;; projectile everywhere!
-(projectile-mode +1)
-(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-(setq projectile-project-search-path '("~/workspace/"))
-(setq projectile-globally-ignored-directories '("-/target"))
-
-;; Ace Window
-(require 'ace-window)
-(global-set-key (kbd "M-o") 'ace-window)
-(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-(setq aw-dispatch-always t)
-
 ;; Turn off the menu bar at the top of each frame because it's distracting
 (menu-bar-mode -1)
 
-;; You can uncomment this to remove the graphical toolbar at the top. After
-;; awhile, you won't need the toolbar.
+;; Turn off the toolbar.
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
 
@@ -135,16 +49,15 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
-;; Uncomment the lines below by removing semicolons and play with the
-;; values in order to set the width (in characters wide) and height
-;; (in lines high) Emacs will have whenever you start it
-;; (setq initial-frame-alist '((top . 0) (left . 0) (width . 177) (height . 53)))
+;; Changes all yes/no questions to y/n type
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; C-h is backwards delete
+(global-set-key [(control ?h)] 'delete-backward-char)
 
 ;; These settings relate to how emacs interacts with your operating system
 (setq ;; makes killing/yanking interact with the clipboard
       x-select-enable-clipboard t
-
-      ;; I'm actually not sure what this does but it's recommended?
       x-select-enable-primary t
 
       ;; Save clipboard strings into kill ring before replacing them.
@@ -155,10 +68,7 @@
 
       ;; Shows all options when running apropos. For more info,
       ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Apropos.html
-      apropos-do-all t
-
-      ;; Mouse yank commands yank at point instead of at click.
-      mouse-yank-at-point t)
+      apropos-do-all t)
 
 ;; No cursor blinking, it's distracting
 (blink-cursor-mode 0)
@@ -200,6 +110,22 @@
 ;; Don't use hard tabs
 (setq-default indent-tabs-mode nil)
 
+;; enable ido mode
+(ido-mode t)
+;; Allow partial matches
+(setq ido-enable-flex-matching t)
+;; Don't try to match file across all "work" directories; only match files
+;; in the current directory displayed in the minibuffer
+(setq ido-auto-merge-work-directories-length -1)
+;; Configure initial frame size on start.
+(setq initial-frame-alist '((top . 0) (left . 0) (width . 90) (height . 50)))
+
+;; org mode
+(require 'org)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+
 ;; When you visit a file, point goes to the last place where it
 ;; was when you previously visited the same file.
 ;; http://www.emacswiki.org/emacs/SavePlace
@@ -208,13 +134,17 @@
 ;; keep track of saved places in ~/.emacs.d/places
 (setq save-place-file (concat user-emacs-directory "places"))
 
-;; Emacs can automatically create backup files. This tells Emacs to
-;; put all backups in ~/.emacs.d/backups. More info:
-;; http://www.gnu.org/software/emacs/manual/html_node/elisp/Backup-Files.html
-(setq backup-directory-alist `(("." . ,(concat user-emacs-directory
-                                               "backups"))))
-(setq auto-save-default nil)
+;; No need for ~ files when editing
+(setq create-lockfiles nil)
 
+;; Go straight to scratch buffer on startup
+(setq inhibit-startup-message t)
+
+;; Color themes
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(add-to-list 'load-path "~/.emacs.d/themes")
+;; (load-theme 'tomorrow-night-eighties t)
+(load-theme 'zenburn t)
 
 ;; comments
 (defun toggle-comment-on-line ()
@@ -222,38 +152,6 @@
   (interactive)
   (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
 (global-set-key (kbd "C-;") 'toggle-comment-on-line)
-
-;; use 2 spaces for tabs
-(defun die-tabs ()
-  (interactive)
-  (set-variable 'tab-width 2)
-  (mark-whole-buffer)
-  (untabify (region-beginning) (region-end))
-  (keyboard-quit))
-
-;; fix weird os x kill error
-(defun ns-get-pasteboard ()
-  "Returns the value of the pasteboard, or nil for unsupported formats."
-  (condition-case nil
-      (ns-get-selection-internal 'CLIPBOARD)
-    (quit nil)))
-
-(setq electric-indent-mode nil)
-
-;; No need for ~ files when editing
-(setq create-lockfiles nil)
-
-;; Go straight to scratch buffer on startup
-(setq inhibit-startup-message t)
-
-(global-set-key (kbd "C-c g") 'magit-status)
-
-(global-set-key [(control ?h)] 'delete-backward-char)
-
-(require 'org)
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(setq org-log-done t)
 
 ;; Automatically load paredit when editing a lisp file
 ;; More at http://www.emacswiki.org/emacs/ParEdit
@@ -265,10 +163,50 @@
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
 
-;;;;
-;; Clojure
-;;;;
 
+;; Sets up exec-path-from shell
+;; https://github.com/purcell/exec-path-from-shell
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-envs
+   '("PATH")))
+
+
+;; Extend ido mode to all contexts, not just
+;; for selecting buffer and file names
+(require 'ido-completing-read+)
+(ido-ubiquitous-mode 1)
+;; Shows a list of buffers
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+
+;; smex enhances M-x to allow easier execution of commands. Provides a
+;; filterable list of possible commands in the minibuffer
+;; http://www.emacswiki.org/emacs/Smex
+(setq smex-save-file (concat user-emacs-directory ".smex-items"))
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+
+
+;; projectile
+(projectile-mode +1)
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(setq projectile-project-search-path '("~/workspace/"))
+(setq projectile-globally-ignored-directories '("-/target"))
+
+
+;; ace-window
+(require 'ace-window)
+(global-set-key (kbd "M-o") 'ace-window)
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+(setq aw-dispatch-always t)
+
+;; magit
+(global-set-key (kbd "C-c g") 'magit-status)
+
+
+;; Clojure mode
 ;; Enable paredit for Clojure
 (add-hook 'clojure-mode-hook 'enable-paredit-mode)
 ;; Enable Rainbow delimiters mode
@@ -278,28 +216,20 @@
 (add-hook 'clojure-mode-hook 'subword-mode)
 ;; Following the Clojure style guide
 (setq clojure-indent-style :align-arguments)
-
-
-;;;;
-;; Cider
-;;;;
-
-;; go right to the REPL buffer when it's finished connecting
-(setq cider-repl-pop-to-buffer-on-connect t)
-
-;; When there's a cider error, show its buffer and switch to it
-(setq cider-show-error-buffer t)
-(setq cider-auto-select-error-buffer t)
-
-;; Where to store the cider history.
-(setq cider-repl-history-file "~/.emacs.d/cider-history")
-
-;; Wrap when navigating history.
-(setq cider-repl-wrap-history t)
-
-;; enable paredit in your REPL
-(add-hook 'cider-repl-mode-hook 'paredit-mode)
-
 ;; Use clojure mode for other extensions
 (add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.boot$" . clojure-mode))
+
+
+;; cider
+;; go right to the REPL buffer when it's finished connecting
+(setq cider-repl-pop-to-buffer-on-connect t)
+;; When there's a cider error, show its buffer and switch to it
+(setq cider-show-error-buffer t)
+(setq cider-auto-select-error-buffer t)
+;; Where to store the cider history.
+(setq cider-repl-history-file "~/.emacs.d/cider-history")
+;; Wrap when navigating history.
+(setq cider-repl-wrap-history t)
+;; enable paredit in your REPL
+(add-hook 'cider-repl-mode-hook 'paredit-mode)
