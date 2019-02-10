@@ -105,6 +105,10 @@
 (global-set-key (kbd "M-x") 'smex)
 
 (setq line-number-mode t)
+(setq column-number-mode t)
+
+;; Make sure that text files are correctly formatted.
+(setq require-final-newline 'ask)
 
 ;; projectile everywhere!
 (projectile-mode +1)
