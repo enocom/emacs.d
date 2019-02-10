@@ -115,61 +115,9 @@
 
 ;; Ace Window
 (require 'ace-window)
+(global-set-key (kbd "M-o") 'ace-window)
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 (setq aw-dispatch-always t)
-(defvar aw-dispatch-alist
-  '()
-  "List of actions for `aw-dispatch-default'.")
-(setq aw-dispatch-alist
-  '((?x aw-delete-window " Ace - Delete Window")
-    (?s aw-swap-window " Ace - Swap Window")
-    (?o aw-flip-window)
-    (?_ aw-split-window-vert " Ace - Split Vert Window")
-    (?| aw-split-window-horz " Ace - Split Horz Window")
-    (?m delete-other-windows " Ace - Maximize Window")
-    (?X delete-other-windows)
-    (?q (lambda () nil))))
-
-(defun xor (b1 b2)
-  "Exclusive or of its two arguments."
-  (or (and b1 b2)
-      (and (not b1) (not b2))))
-
-(defun move-border-left-or-right (arg dir)
-  "General function covering move-border-left and move-border-right. If DIR is
-     t, then move left, otherwise move right."
-  (interactive)
-  (if (null arg) (setq arg 10))
-  (let ((left-edge (nth 0 (window-edges))))
-    (if (xor (= left-edge 0) dir)
-        (shrink-window arg t)
-      (enlarge-window arg t))))
-
-(defun move-border-left (arg)
-  "If this is a window with its right edge being the edge of the screen, enlarge
-     the window horizontally. If this is a window with its left edge being the edge
-     of the screen, shrink the window horizontally. Otherwise, default to enlarging
-     horizontally.
-
-     Enlarge/Shrink by ARG columns, or 5 if arg is nil."
-  (interactive "P")
-  (move-border-left-or-right arg t))
-
-(defun move-border-right (arg)
-  "If this is a window with its right edge being the edge of the screen, shrink
-     the window horizontally. If this is a window with its left edge being the edge
-     of the screen, enlarge the window horizontally. Otherwise, default to shrinking
-     horizontally.
-
-     Enlarge/Shrink by ARG columns, or 5 if arg is nil."
-  (interactive "P")
-  (move-border-left-or-right arg nil))
-
-;; Buffer management
-(global-unset-key (kbd "C-x o"))
-(global-set-key (kbd "C-x o") 'ace-window)
-(global-set-key (kbd "M-[") 'move-border-left)
-(global-set-key (kbd "M-]") 'move-border-right)
-(global-set-key (kbd "C-c ;") 'resize-window)
 
 ;; Turn off the menu bar at the top of each frame because it's distracting
 (menu-bar-mode -1)
