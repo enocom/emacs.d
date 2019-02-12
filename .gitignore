@@ -6,4 +6,6 @@ ido.last
 projectile-bookmarks.eld
 cider-history
 *~
+eshell
+projectile.cache
 
