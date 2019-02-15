@@ -53,7 +53,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Set fill column to 80 characters
-(setq fill-column 80)
+(setq-default fill-column 80)
 
 ;; C-h is backwards delete
 ;; (global-set-key [(control ?h)] 'delete-backward-char)
