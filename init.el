@@ -85,6 +85,9 @@
 ;; don't pop up font menu
 (global-set-key (kbd "s-t") '(lambda () (interactive)))
 
+;; make it easy to start eshell
+(global-set-key (kbd "C-c e") 'eshell)
+
 ;; no bell
 (setq ring-bell-function 'ignore)
 
