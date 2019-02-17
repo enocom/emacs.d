@@ -88,6 +88,9 @@
 ;; make it easy to start eshell
 (global-set-key (kbd "C-c e") 'eshell)
 
+;; remove trailing whitespace on save
+(add-hook 'after-save-hook 'delete-trailing-whitespace)
+
 ;; no bell
 (setq ring-bell-function 'ignore)
 
