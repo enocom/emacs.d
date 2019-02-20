@@ -7,6 +7,7 @@
   (package-refresh-contents))
 (defvar installed-packages
   '(ace-window
+    browse-kill-ring
     cider
     clojure-mode
     ido-completing-read+
@@ -174,6 +175,9 @@
 (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+
+;; browse-kill-ring
+(browse-kill-ring-default-keybindings)
 
 
 ;; Sets up exec-path-from shell
