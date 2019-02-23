@@ -10,6 +10,7 @@
     browse-kill-ring
     cider
     clojure-mode
+    doom-themes
     ido-completing-read+
     magit
     paredit
@@ -159,6 +160,7 @@
 ;; Color themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
+;; (load-theme 'doom-nord-light)
 (load-theme 'tomorrow-night-eighties t)
 ;; (load-theme 'zenburn t)
 ;; Use transparent titlebar
