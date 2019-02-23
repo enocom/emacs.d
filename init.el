@@ -81,6 +81,9 @@
 ;; Git suffices.
 (setq make-backup-files nil)
 
+;; Disable lock files.
+(setq create-lockfiles nil)
+
 ;; full path in title bar
 (setq-default frame-title-format "%b (%f)")
 
