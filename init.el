@@ -36,6 +36,8 @@
 (set-face-attribute 'default nil :height 140)
 (setq line-number-mode t)
 (setq column-number-mode t)
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
 
 ;; Make sure that text files are correctly formatted.
 (setq require-final-newline 'ask)
