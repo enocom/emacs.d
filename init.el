@@ -89,6 +89,9 @@
 ;; make it easy to start eshell
 (global-set-key (kbd "C-c e") 'eshell)
 
+;; save session automatically
+;; (desktop-save-mode 1)
+
 ;; remove trailing whitespace on save
 (add-hook 'after-save-hook 'delete-trailing-whitespace)
 
