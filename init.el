@@ -161,6 +161,10 @@
 (add-to-list 'load-path "~/.emacs.d/themes")
 (load-theme 'tomorrow-night-eighties t)
 ;; (load-theme 'zenburn t)
+;; Use transparent titlebar
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+;; Use dark titlebar
+;; (add-to-list 'default-frame-alist '(ns-appearance . dark))
 
 ;; comments
 (defun toggle-comment-on-line ()
