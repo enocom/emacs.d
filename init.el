@@ -33,36 +33,64 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-;; Configure Emacs generally (non-package-specific stuff)
+;; Visual configuration ;;
+
 ;; increase font size for better readability
 (set-face-attribute 'default nil :height 140)
-(setq line-number-mode t)
-(setq column-number-mode t)
-(when (version<= "26.0.50" emacs-version )
-  (global-display-line-numbers-mode))
-
-;; Make sure that text files are correctly formatted.
-(setq require-final-newline 'ask)
-
+;; Configure initial frame size on start.
+(setq initial-frame-alist '((top . 10) (left . 10) (width . 90) (height . 50)))
+;; Use dark theme to be easy on the eyes
+(load-theme 'sanityinc-tomorrow-eighties t)
+;; Use transparent titlebar
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+;; Use dark titlebar
+;; (add-to-list 'default-frame-alist '(ns-appearance . dark))
 ;; Turn off the menu bar at the top of each frame because it's distracting
 (menu-bar-mode -1)
-
 ;; Turn off the toolbar.
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
-
 ;; Don't show native OS scroll bars for buffers because they're redundant
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
+;; No cursor blinking, it's distracting
+(blink-cursor-mode 0)
+;; full path in title bar
+(setq-default frame-title-format "%b (%f)")
+;; Highlights matching parenthesis
+(show-paren-mode 1)
+;; Highlight current line
+(global-hl-line-mode 1)
+;; Add line number to status bar
+(setq line-number-mode t)
+;; Add column number to status bar
+(setq column-number-mode t)
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
+(global-set-key (kbd "C-c l") 'global-display-line-numbers-mode)
 
-;; Changes all yes/no questions to y/n type
-(fset 'yes-or-no-p 'y-or-n-p)
+;; Behavior configuration ;;
 
+;; Go straight to scratch buffer on startup
+(setq inhibit-startup-message t)
 ;; Set fill column to 80 characters
 (setq-default fill-column 80)
-
-;; C-h is backwards delete
-;; (global-set-key [(control ?h)] 'delete-backward-char)
+;; Make sure that text files are correctly formatted.
+(setq require-final-newline 'ask)
+;; remove trailing whitespace on save
+(add-hook 'after-save-hook 'delete-trailing-whitespace)
+;; Changes all yes/no questions to y/n type
+(fset 'yes-or-no-p 'y-or-n-p)
+;; Git suffices.
+(setq make-backup-files nil)
+;; Disable lock files.
+(setq create-lockfiles nil)
+;; save session automatically
+(desktop-save-mode 1)
+;; no bell
+(setq ring-bell-function 'ignore)
+;; Don't use hard tabs
+(setq-default indent-tabs-mode nil)
 
 ;; These settings relate to how emacs interacts with your operating system
 (setq ;; makes killing/yanking interact with the clipboard
@@ -79,37 +107,11 @@
       ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Apropos.html
       apropos-do-all t)
 
-;; No cursor blinking, it's distracting
-(blink-cursor-mode 0)
-
-;; Git suffices.
-(setq make-backup-files nil)
-
-;; Disable lock files.
-(setq create-lockfiles nil)
-
-;; full path in title bar
-(setq-default frame-title-format "%b (%f)")
-
-;; don't pop up font menu
-(global-set-key (kbd "s-t") '(lambda () (interactive)))
-
-;; make it easy to start eshell
-(global-set-key (kbd "C-c e") 'eshell)
-
-;; save session automatically
-;; (desktop-save-mode 1)
-
-;; remove trailing whitespace on save
-(add-hook 'after-save-hook 'delete-trailing-whitespace)
-
-;; no bell
-(setq ring-bell-function 'ignore)
+;; Keyboard configuration for built-ins
 
 ;; Key binding to use "hippie expand" for text autocompletion
 ;; http://www.emacswiki.org/emacs/HippieExpand
 (global-set-key (kbd "M-/") 'hippie-expand)
-
 ;; Lisp-friendly hippie expand
 (setq hippie-expand-try-functions-list
       '(try-expand-dabbrev
@@ -117,22 +119,12 @@
         try-expand-dabbrev-from-kill
         try-complete-lisp-symbol-partially
         try-complete-lisp-symbol))
-
-;; Highlights matching parenthesis
-(show-paren-mode 1)
-
-;; Highlight current line
-(global-hl-line-mode 1)
-
 ;; Interactive search key bindings. By default, C-s runs
 ;; isearch-forward, so this swaps the bindings.
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
 (global-set-key (kbd "C-r") 'isearch-backward-regexp)
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
-
-;; Don't use hard tabs
-(setq-default indent-tabs-mode nil)
 
 ;; enable ido mode
 (ido-mode t)
@@ -141,14 +133,6 @@
 ;; Don't try to match file across all "work" directories; only match files
 ;; in the current directory displayed in the minibuffer
 (setq ido-auto-merge-work-directories-length -1)
-;; Configure initial frame size on start.
-(setq initial-frame-alist '((top . 0) (left . 0) (width . 90) (height . 50)))
-
-;; org mode
-(require 'org)
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(setq org-log-done t)
 
 ;; When you visit a file, point goes to the last place where it
 ;; was when you previously visited the same file.
@@ -157,23 +141,6 @@
 (setq-default save-place t)
 ;; keep track of saved places in ~/.emacs.d/places
 (setq save-place-file (concat user-emacs-directory "places"))
-
-;; No need for ~ files when editing
-(setq create-lockfiles nil)
-
-;; Go straight to scratch buffer on startup
-(setq inhibit-startup-message t)
-
-;; Color themes
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(add-to-list 'load-path "~/.emacs.d/themes")
-;; (load-theme 'doom-nord-light)
-(load-theme 'sanityinc-tomorrow-eighties t)
-;; (load-theme 'zenburn t)
-;; Use transparent titlebar
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-;; Use dark titlebar
-;; (add-to-list 'default-frame-alist '(ns-appearance . dark))
 
 ;; comments
 (defun toggle-comment-on-line ()
@@ -191,6 +158,7 @@
 (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+
 
 ;; browse-kill-ring
 (browse-kill-ring-default-keybindings)
