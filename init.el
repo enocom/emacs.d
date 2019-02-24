@@ -129,14 +129,6 @@
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
-;; enable ido mode
-(ido-mode t)
-;; Allow partial matches
-(setq ido-enable-flex-matching t)
-;; Don't try to match file across all "work" directories; only match files
-;; in the current directory displayed in the minibuffer
-(setq ido-auto-merge-work-directories-length -1)
-
 ;; When you visit a file, point goes to the last place where it
 ;; was when you previously visited the same file.
 ;; http://www.emacswiki.org/emacs/SavePlace
@@ -177,6 +169,14 @@
 
 ;; Extend ido mode to all contexts, not just
 ;; for selecting buffer and file names
+;; enable ido mode
+(ido-mode t)
+(ido-everywhere 1)
+;; Allow partial matches
+(setq ido-enable-flex-matching t)
+;; Don't try to match file across all "work" directories; only match files
+;; in the current directory displayed in the minibuffer
+(setq ido-auto-merge-work-directories-length -1)
 (require 'ido-completing-read+)
 (ido-ubiquitous-mode 1)
 ;; Shows a list of buffers
