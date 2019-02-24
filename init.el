@@ -39,8 +39,11 @@
 (set-face-attribute 'default nil :height 140)
 ;; Configure initial frame size on start.
 (setq initial-frame-alist '((top . 10) (left . 10) (width . 90) (height . 50)))
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(add-to-list 'load-path "~/.emacs.d/themes")
 ;; Use dark theme to be easy on the eyes
-(load-theme 'sanityinc-tomorrow-eighties t)
+(load-theme 'tomorrow-night-eighties t)
+;; (load-theme 'sanityinc-tomorrow-eighties t)
 ;; Use transparent titlebar
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 ;; Use dark titlebar
