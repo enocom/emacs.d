@@ -88,8 +88,6 @@
 (setq make-backup-files nil)
 ;; Disable lock files.
 (setq create-lockfiles nil)
-;; save session automatically
-(desktop-save-mode 1)
 ;; no bell
 (setq ring-bell-function 'ignore)
 ;; Don't use hard tabs
