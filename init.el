@@ -16,7 +16,8 @@
     paredit
     projectile
     rainbow-delimiters
-    smex))
+    smex
+    zenburn-theme))
 ;; On OS X, an Emacs instance started from the graphical user
 ;; interface will have a different environment than a shell in a
 ;; terminal window, because OS X does not run a shell during the
