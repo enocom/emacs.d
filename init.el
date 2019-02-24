@@ -44,6 +44,7 @@
 ;; Use dark theme to be easy on the eyes
 (load-theme 'tomorrow-night-eighties t)
 ;; (load-theme 'sanityinc-tomorrow-eighties t)
+;; (load-theme 'doom-nord-light)
 ;; Use transparent titlebar
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 ;; Use dark titlebar
