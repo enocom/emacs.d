@@ -10,6 +10,7 @@
     browse-kill-ring
     cider
     clojure-mode
+    color-theme-sanityinc-tomorrow
     doom-themes
     ido-completing-read+
     magit
@@ -167,7 +168,7 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
 ;; (load-theme 'doom-nord-light)
-(load-theme 'tomorrow-night-eighties t)
+(load-theme 'sanityinc-tomorrow-eighties t)
 ;; (load-theme 'zenburn t)
 ;; Use transparent titlebar
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
