@@ -150,7 +150,7 @@
   "comment or uncomment current line"
   (interactive)
   (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
-(global-set-key (kbd "C-;") 'toggle-comment-on-line)
+(global-set-key (kbd "C-c ;") 'toggle-comment-on-line)
 
 ;; Automatically load paredit when editing a lisp file
 ;; More at http://www.emacswiki.org/emacs/ParEdit
