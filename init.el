@@ -1,4 +1,4 @@
-;; Install packages
+;; Use package to install external packages.
 (require 'package)
 (add-to-list 'package-archives
              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
@@ -18,133 +18,114 @@
     rainbow-delimiters
     smex
     zenburn-theme))
-;; On OS X, an Emacs instance started from the graphical user
-;; interface will have a different environment than a shell in a
-;; terminal window, because OS X does not run a shell during the
-;; login. Obviously this will lead to unexpected results when
-;; calling external utilities like make from Emacs.
-;; This library works around this problem by copying important
-;; environment variables from the user's shell.
-;; https://github.com/purcell/exec-path-from-shell
+;; Ensure emacs shells start with the same environment as regular shells on
+;; macOS.
 (if (eq system-type 'darwin)
     (add-to-list 'installed-packages 'exec-path-from-shell))
 (dolist (p installed-packages)
   (when (not (package-installed-p p))
     (package-install p)))
 
-;; Visual configuration ;;
+;; Configuration is grouped by built-in packages and then external
+;; packages. The groups are:
+;; 1. *visual* configuration,
+;; 2. *behavioral* configuration,
+;; 3. *keyboard shortcut* configuration, and
+;; 4. *external package* configuration.
 
-;; increase font size for better readability
+; 1. Visual configuration:
+
+;; increase font size for better readability.
 (set-face-attribute 'default nil :height 140)
 ;; Configure initial frame size on start.
-(setq initial-frame-alist '((top . 10) (left . 10) (width . 90) (height . 50)))
+(setq initial-frame-alist '((top . 10)
+                            (left . 10)
+                            (width . 90)
+                            (height . 50)))
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-;; Use dark theme to be easy on the eyes
+;; Use a dark theme to be easy on the eyes.
 (load-theme 'tomorrow-night-eighties t)
-;; (load-theme 'sanityinc-tomorrow-eighties t)
-;; (load-theme 'doom-nord-light)
-;; Use transparent titlebar
+;; Use a transparent titlebar.
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-;; Use dark titlebar
-;; (add-to-list 'default-frame-alist '(ns-appearance . dark))
-;; Turn off the menu bar at the top of each frame because it's distracting
+;; Turn off the menu bar.
 (menu-bar-mode -1)
 ;; Turn off the toolbar.
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
-;; Don't show native OS scroll bars for buffers because they're redundant
+;; Disable native scroll bars.
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
-;; No cursor blinking, it's distracting
+;; Disable the blinking curso.
 (blink-cursor-mode 0)
-;; full path in title bar
-(setq-default frame-title-format "%b (%f)")
-;; Highlights matching parenthesis
+;; Turn off the title bar.
+(setq frame-title-format "")
+;; Highlight matching paren.
 (show-paren-mode 1)
-;; Highlight current line
+;; Highlight current line.
 (global-hl-line-mode 1)
-;; Add line number to status bar
+;; Add line number to status bar.
 (setq line-number-mode t)
-;; Add column number to status bar
+;; Add column number to status bar.
 (setq column-number-mode t)
+;; Use emacs >= 26 global line numbers.
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
 (global-set-key (kbd "C-c l") 'global-display-line-numbers-mode)
 
-;; Behavior configuration ;;
+;; 2. Behavioral configuration:
 
-;; Go straight to scratch buffer on startup
+;; Go straight to scratch buffer on startup.
 (setq inhibit-startup-message t)
-;; Set fill column to 80 characters
+;; Set fill column to 80 characters.
 (setq-default fill-column 80)
 ;; Make sure that text files are correctly formatted.
 (setq require-final-newline 'ask)
-;; remove trailing whitespace on save
+;; Remove trailing whitespace on save.
 (add-hook 'after-save-hook 'delete-trailing-whitespace)
-;; Changes all yes/no questions to y/n type
+;; Changes all yes/no questions to y/n.
 (fset 'yes-or-no-p 'y-or-n-p)
-;; Git suffices.
+;; Disable backup files.
 (setq make-backup-files nil)
 ;; Disable lock files.
 (setq create-lockfiles nil)
-;; no bell
+;; Disable the bell.
 (setq ring-bell-function 'ignore)
-;; Don't use hard tabs
+;; Don't use hard tabs.
 (setq-default indent-tabs-mode nil)
-
-;; These settings relate to how emacs interacts with your operating system
-(setq ;; makes killing/yanking interact with the clipboard
-      x-select-enable-clipboard t
+;; Configure kill-ring to integrate with copy/paste.
+(setq x-select-enable-clipboard t
       x-select-enable-primary t
+      save-interprogram-paste-before-kill t)
 
-      ;; Save clipboard strings into kill ring before replacing them.
-      ;; When one selects something in another program to paste it into Emacs,
-      ;; but kills something in Emacs before actually pasting it,
-      ;; this selection is gone unless this variable is non-nil
-      save-interprogram-paste-before-kill t
+;; 3. Keyboard configuration:
 
-      ;; Shows all options when running apropos. For more info,
-      ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Apropos.html
-      apropos-do-all t)
-
-;; Keyboard configuration for built-ins
-
-;; Key binding to use "hippie expand" for text autocompletion
-;; http://www.emacswiki.org/emacs/HippieExpand
-(global-set-key (kbd "M-/") 'hippie-expand)
-;; Lisp-friendly hippie expand
+;; Bind hippie expand to user space shortcut.
+(global-set-key (kbd "C-c /") 'hippie-expand)
+;; Lisp-friendly hippie expand.
 (setq hippie-expand-try-functions-list
       '(try-expand-dabbrev
         try-expand-dabbrev-all-buffers
         try-expand-dabbrev-from-kill
         try-complete-lisp-symbol-partially
         try-complete-lisp-symbol))
-;; Interactive search key bindings. By default, C-s runs
-;; isearch-forward, so this swaps the bindings.
-(global-set-key (kbd "C-s") 'isearch-forward-regexp)
-(global-set-key (kbd "C-r") 'isearch-backward-regexp)
-(global-set-key (kbd "C-M-s") 'isearch-forward)
-(global-set-key (kbd "C-M-r") 'isearch-backward)
 
-;; When you visit a file, point goes to the last place where it
-;; was when you previously visited the same file.
-;; http://www.emacswiki.org/emacs/SavePlace
+;; Save last position of point for visited buffers.
 (require 'saveplace)
 (setq-default save-place t)
-;; keep track of saved places in ~/.emacs.d/places
+;; Keep track of saved places in ~/.emacs.d/places.
 (setq save-place-file (concat user-emacs-directory "places"))
 
-;; comments
+;; Add a function to comment or uncomment a line.
 (defun toggle-comment-on-line ()
   "comment or uncomment current line"
   (interactive)
   (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
 (global-set-key (kbd "C-c ;") 'toggle-comment-on-line)
 
-;; Automatically load paredit when editing a lisp file
-;; More at http://www.emacswiki.org/emacs/ParEdit
-(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+;; Automatically load paredit when editing a lisp file.
+(autoload 'enable-paredit-mode "paredit"
+  "Turn on pseudo-structural editing of Lisp code." t)
 (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
 (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
 (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
@@ -152,64 +133,25 @@
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
 
+;; 4. External package configuration:
 
-;; browse-kill-ring
-(browse-kill-ring-default-keybindings)
-
-
-;; Sets up exec-path-from shell
-;; https://github.com/purcell/exec-path-from-shell
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize)
-  (exec-path-from-shell-copy-envs
-   '("PATH")))
-
-
-;; Extend ido mode to all contexts, not just
-;; for selecting buffer and file names
-;; enable ido mode
-(ido-mode t)
-(ido-everywhere 1)
-;; Allow partial matches
-(setq ido-enable-flex-matching t)
-;; Don't try to match file across all "work" directories; only match files
-;; in the current directory displayed in the minibuffer
-(setq ido-auto-merge-work-directories-length -1)
-(require 'ido-completing-read+)
-(ido-ubiquitous-mode 1)
-;; Shows a list of buffers
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-
-
-;; smex enhances M-x to allow easier execution of commands. Provides a
-;; filterable list of possible commands in the minibuffer
-;; http://www.emacswiki.org/emacs/Smex
-(setq smex-save-file (concat user-emacs-directory ".smex-items"))
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-
-
-;; projectile
-(projectile-mode +1)
-(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-(setq projectile-project-search-path '("~/workspace/"))
-(setq projectile-globally-ignored-directories '("-/target"))
-
-
-;; ace-window
-(require 'ace-window)
+;; Configure ace-window.
 (global-set-key (kbd "M-o") 'ace-window)
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 (setq aw-dispatch-always t)
 
-;; magit
-(global-set-key (kbd "C-c g") 'magit-status)
+;; Configure browse-kill-ring.
+(browse-kill-ring-default-keybindings)
 
+;; Configure cider.
+;; When there's a cider error, show its buffer.
+(setq cider-show-error-buffer t)
+;; Where to store the cider history.
+(setq cider-repl-history-file "~/.emacs.d/cider-history")
+;; Enable paredit in the REPL.
+(add-hook 'cider-repl-mode-hook 'paredit-mode)
 
-;; Clojure mode
+;; Configure clojure-mode.
 ;; Enable paredit for Clojure
 (add-hook 'clojure-mode-hook 'enable-paredit-mode)
 ;; Enable Rainbow delimiters mode
@@ -223,16 +165,39 @@
 (add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.boot$" . clojure-mode))
 
+;; Configure exec-path-from shell.
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-envs
+   '("PATH")))
 
-;; cider
-;; go right to the REPL buffer when it's finished connecting
-(setq cider-repl-pop-to-buffer-on-connect t)
-;; When there's a cider error, show its buffer and switch to it
-(setq cider-show-error-buffer t)
-(setq cider-auto-select-error-buffer t)
-;; Where to store the cider history.
-(setq cider-repl-history-file "~/.emacs.d/cider-history")
-;; Wrap when navigating history.
-(setq cider-repl-wrap-history t)
-;; enable paredit in your REPL
-(add-hook 'cider-repl-mode-hook 'paredit-mode)
+;; Configure ido-completing-read+.
+(ido-mode t)
+(ido-everywhere 1)
+;; Allow partial matches
+(setq ido-enable-flex-matching t)
+;; Don't try to match file across all "work" directories; only match files
+;; in the current directory displayed in the minibuffer
+(setq ido-auto-merge-work-directories-length -1)
+(ido-ubiquitous-mode 1)
+;; Shows a list of buffers
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;; magit
+(global-set-key (kbd "C-c g") 'magit-status)
+
+;; projectile
+(projectile-mode +1)
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(setq projectile-project-search-path '("~/workspace/"))
+(setq projectile-globally-ignored-directories '("-/target"))
+
+;; Configure smex.
+(setq smex-save-file (concat user-emacs-directory ".smex-items"))
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+;; Done.
