@@ -10,7 +10,6 @@
     browse-kill-ring
     cider
     clojure-mode
-    color-theme-sanityinc-tomorrow
     doom-themes
     ido-completing-read+
     magit
