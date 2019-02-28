@@ -150,6 +150,8 @@
 (setq cider-repl-history-file "~/.emacs.d/cider-history")
 ;; Enable paredit in the REPL.
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
+;; launch clj REPL with dev profile
+(setq cider-clojure-cli-global-options "-A:dev")
 
 ;; Configure clojure-mode.
 ;; Enable paredit for Clojure
