@@ -100,6 +100,9 @@
 
 ;; 3. Keyboard configuration:
 
+;; make it easy to start eshell
+(global-set-key (kbd "C-c e") 'eshell)
+
 ;; Bind hippie expand to user space shortcut.
 (global-set-key (kbd "C-c /") 'hippie-expand)
 ;; Lisp-friendly hippie expand.
