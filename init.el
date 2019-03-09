@@ -10,14 +10,11 @@
     browse-kill-ring
     cider
     clojure-mode
-    doom-themes
-    ido-completing-read+
     magit
     paredit
     projectile
     rainbow-delimiters
-    smex
-    zenburn-theme))
+    smex))
 ;; Ensure emacs shells start with the same environment as regular shells on
 ;; macOS.
 (if (eq system-type 'darwin)
@@ -100,8 +97,8 @@
 
 ;; 3. Keyboard configuration:
 
-;; make it easy to start eshell
-(global-set-key (kbd "C-c e") 'eshell)
+;; Use ibuffer instead of default.
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; Bind hippie expand to user space shortcut.
 (global-set-key (kbd "C-c /") 'hippie-expand)
@@ -176,18 +173,6 @@
   (exec-path-from-shell-copy-envs
    '("PATH")))
 
-;; Configure ido-completing-read+.
-(ido-mode t)
-(ido-everywhere 1)
-;; Allow partial matches
-(setq ido-enable-flex-matching t)
-;; Don't try to match file across all "work" directories; only match files
-;; in the current directory displayed in the minibuffer
-(setq ido-auto-merge-work-directories-length -1)
-(ido-ubiquitous-mode 1)
-;; Shows a list of buffers
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-
 ;; magit
 (global-set-key (kbd "C-c g") 'magit-status)
 
@@ -205,10 +190,8 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
+;; Configure vendored packages.
 (add-to-list 'load-path "~/.emacs.d/vendor")
-(load "fill-column-indicator.el")
-(load "column-marker.el")
-(load "fill-column-marker.el")
 (require 'fill-column-marker)
 (global-fcm-mode 1)
 
