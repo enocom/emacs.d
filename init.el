@@ -205,4 +205,11 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
+(add-to-list 'load-path "~/.emacs.d/vendor")
+(load "fill-column-indicator.el")
+(load "column-marker.el")
+(load "fill-column-marker.el")
+(require 'fill-column-marker)
+(global-fcm-mode 1)
+
 ;; Done.
