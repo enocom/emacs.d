@@ -44,7 +44,7 @@
 ;; Use a dark theme to be easy on the eyes.
 (load-theme 'tomorrow-night-eighties t)
 ;; Use a transparent titlebar.
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 ;; Turn off the menu bar.
 (menu-bar-mode -1)
 ;; Turn off the toolbar.
@@ -55,8 +55,6 @@
   (scroll-bar-mode -1))
 ;; Disable the blinking curso.
 (blink-cursor-mode 0)
-;; Turn off the title bar.
-(setq frame-title-format "")
 ;; Highlight matching paren.
 (show-paren-mode 1)
 ;; Highlight current line.
