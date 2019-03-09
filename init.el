@@ -10,6 +10,7 @@
     browse-kill-ring
     cider
     clojure-mode
+    ido-completing-read+
     magit
     paredit
     projectile
@@ -170,6 +171,18 @@
   (exec-path-from-shell-initialize)
   (exec-path-from-shell-copy-envs
    '("PATH")))
+
+;; Configure ido-completing-read+.
+(ido-mode t)
+(ido-everywhere 1)
+;; Allow partial matches
+(setq ido-enable-flex-matching t)
+;; Don't try to match file across all "work" directories; only match files
+;; in the current directory displayed in the minibuffer
+(setq ido-auto-merge-work-directories-length -1)
+(ido-ubiquitous-mode 1)
+;; Shows a list of buffers
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; magit
 (global-set-key (kbd "C-c g") 'magit-status)
