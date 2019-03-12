@@ -15,7 +15,8 @@
     paredit
     projectile
     rainbow-delimiters
-    smex))
+    smex
+    yaml-mode))
 ;; Ensure emacs shells start with the same environment as regular shells on
 ;; macOS.
 (if (eq system-type 'darwin)
