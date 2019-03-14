@@ -207,4 +207,9 @@
 (require 'fill-column-marker)
 (global-fcm-mode 1)
 
+(defun today ()
+  "Insert string for today's date, e.g., 2019 September 17."
+  (interactive)
+  (insert (format-time-string "%Y %B %e")))
+
 ;; Done.
