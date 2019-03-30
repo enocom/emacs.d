@@ -152,6 +152,8 @@
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
 ;; Don't open the repl buffer on connect.
 (setq cider-repl-pop-to-buffer-on-connect nil)
+;; When switching to the REPL, show it in the current window.
+(setq cider-repl-display-in-current-window t)
 
 ;; Configure clojure-mode.
 ;; Enable paredit for Clojure
