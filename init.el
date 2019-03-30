@@ -150,6 +150,8 @@
 (setq cider-repl-history-file "~/.emacs.d/cider-history")
 ;; Enable paredit in the REPL.
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
+;; Don't open the repl buffer on connect.
+(setq cider-repl-pop-to-buffer-on-connect nil)
 
 ;; Configure clojure-mode.
 ;; Enable paredit for Clojure
