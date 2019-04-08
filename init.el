@@ -10,6 +10,7 @@
     browse-kill-ring
     cider
     clojure-mode
+    expand-region
     ido-completing-read+
     magit
     paredit
@@ -174,6 +175,9 @@
   (exec-path-from-shell-initialize)
   (exec-path-from-shell-copy-envs
    '("PATH")))
+
+;; Configure expand-region
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; Configure ido-completing-read+.
 (ido-mode t)
