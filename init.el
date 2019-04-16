@@ -46,7 +46,7 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
 ;; Use a dark theme to be easy on the eyes.
-(load-theme 'tomorrow-night-eighties t)
+;; (load-theme 'tomorrow-night-eighties t)
 ;; Use a transparent titlebar.
 ;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 ;; Turn off the menu bar.
