@@ -27,6 +27,10 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
+;; Move all customization information into its own file.
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
+
 ;; Configuration is grouped by built-in packages and then external
 ;; packages. The groups are:
 ;; 1. *visual* configuration,
