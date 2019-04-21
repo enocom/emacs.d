@@ -29,7 +29,7 @@
 
 ;; Move all customization information into its own file.
 (setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
+(load custom-file :no-error)
 
 ;; Configuration is grouped by built-in packages and then external
 ;; packages. The groups are:
