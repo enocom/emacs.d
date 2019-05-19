@@ -41,7 +41,7 @@
 ; 1. Visual configuration:
 
 ;; increase font size for better readability.
-(set-face-attribute 'default nil :height 140)
+(set-face-attribute 'default nil :height 160)
 ;; Configure initial frame size on start.
 (setq initial-frame-alist '((top . 10)
                             (left . 10)
