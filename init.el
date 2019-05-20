@@ -215,8 +215,6 @@
 
 ;; Configure vendored packages.
 (add-to-list 'load-path "~/.emacs.d/vendor")
-(require 'fill-column-marker)
-(global-fcm-mode 1)
 
 (require 'marc-mode)
 
