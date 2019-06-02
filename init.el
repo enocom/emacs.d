@@ -41,12 +41,12 @@
 ; 1. Visual configuration:
 
 ;; increase font size for better readability.
-(set-face-attribute 'default nil :height 160)
+(set-face-attribute 'default nil :height 150)
 ;; Configure initial frame size on start.
-(setq initial-frame-alist '((top . 10)
-                            (left . 10)
+(setq initial-frame-alist '((top . 0)
+                            (left . 100)
                             (width . 90)
-                            (height . 50)))
+                            (height . 90)))
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
 ;; Use a dark theme to be easy on the eyes.
