@@ -84,7 +84,7 @@
 ;; Set fill column to 80 characters.
 (setq-default fill-column 80)
 ;; Make sure that text files are correctly formatted.
-(setq require-final-newline 'ask)
+(setq require-final-newline t)
 ;; Remove trailing whitespace on save.
 (add-hook 'after-save-hook 'delete-trailing-whitespace)
 ;; Changes all yes/no questions to y/n.
