@@ -11,6 +11,7 @@
     browse-kill-ring
     cider
     clojure-mode
+    company
     expand-region
     ido-completing-read+
     magit
@@ -174,6 +175,10 @@
 ;; Use clojure mode for other extensions
 (add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.boot$" . clojure-mode))
+
+;; Company (complete anything)
+;; Enable in all buffers.
+(add-hook 'after-init-hook 'global-company-mode)
 
 ;; Configure exec-path-from shell.
 (when (memq window-system '(mac ns))
