@@ -34,7 +34,10 @@ about Emacs, or at least call desired functions.
 
 This Emacs config attempts to be as minimal as possible while also preserving
 some creature-comforts of development. A more fully featured Emacs config worth
-trying is [Emacs Prelude](https://github.com/bbatsov/prelude).
+trying is [Emacs Prelude](https://github.com/bbatsov/prelude). If you prefer a
+mind-bending and maximalist config, check out 
+[Emacs Live](https://github.com/overtone/emacs-live), a config built to support
+writing and performing music in Clojure.
 
 Here are the installed plugins:
 
