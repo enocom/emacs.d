@@ -30,6 +30,10 @@ function. Likewise, a person may use `M-x` to open a fuzzy finder of all the
 available functions in Emacs. The command is a good way to discover new things
 about Emacs, or at least call desired functions.
 
+Once you're comfortable moving around Emacs and doing basic editing, try reading
+through [init.el](init.el), which is copiously annotated with explanations of what
+each piece of configuration does.
+
 ## Installed Plugins
 
 This Emacs config attempts to be as minimal as possible while also preserving
