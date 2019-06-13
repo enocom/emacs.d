@@ -42,14 +42,14 @@ writing and performing music in Clojure.
 Here are the installed plugins:
 
 - [ace-window](https://github.com/abo-abo/ace-window)
-- [ag](https://github.com/Wilfred/ag.el) (Requires [The Silver Searcher](https://github.com/ggreer/the_silver_searcher)
+- [ag](https://github.com/Wilfred/ag.el) (Requires [The Silver Searcher](https://github.com/ggreer/the_silver_searcher))
 - [browse-kill-ring](https://github.com/browse-kill-ring/browse-kill-ring)
 - [CIDER](https://cider.mx)
 - [clojure-mode](https://github.com/clojure-emacs/clojure-mode/)
 - [company](http://company-mode.github.io)
 - [expand-region](https://github.com/magnars/expand-region.el) (See [Emacs Rocks Episode 9](http://emacsrocks.com/e09.html))
 - [ido-completing-read+](https://github.com/DarwinAwardWinner/ido-completing-read-plus)
-- [magit](https://magit.vc) (See [Emacs Rocks Episode 17](http://emacsrocks.com/e17.html)
+- [magit](https://magit.vc) (See [Emacs Rocks Episode 17](http://emacsrocks.com/e17.html))
 - [paredit](https://www.emacswiki.org/emacs/ParEdit) (See [Emacs Rocks Episode 14](http://emacsrocks.com/e14.html))
 - [projectile](https://www.projectile.mx/en/latest/)
 - [rainbow-delimiters](https://github.com/Fanael/rainbow-delimiters)
