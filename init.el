@@ -62,7 +62,7 @@
 ;; Disable native scroll bars.
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
-;; Disable the blinking curso.
+;; Disable the blinking cursor.
 (blink-cursor-mode 0)
 ;; Highlight matching paren.
 (show-paren-mode 1)
@@ -104,9 +104,6 @@
 
 ;; 3. Keyboard configuration:
 
-;; Use ibuffer instead of default.
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-
 ;; Bind hippie expand to user space shortcut.
 (global-set-key (kbd "C-c /") 'hippie-expand)
 ;; Lisp-friendly hippie expand.
@@ -144,8 +141,8 @@
 
 ;; Configure ace-window.
 (global-set-key (kbd "M-o") 'ace-window)
+;; Use "home row" (e.g., a, s , d, f) to jump between windows.
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-(setq aw-dispatch-always t)
 
 ;; Configure browse-kill-ring.
 (browse-kill-ring-default-keybindings)
@@ -157,8 +154,6 @@
 (setq cider-repl-history-file "~/.emacs.d/cider-history")
 ;; Enable paredit in the REPL.
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
-;; Don't open the repl buffer on connect.
-(setq cider-repl-pop-to-buffer-on-connect nil)
 ;; When switching to the REPL, show it in the current window.
 (setq cider-repl-display-in-current-window t)
 
@@ -192,12 +187,12 @@
 ;; Configure ido-completing-read+.
 (ido-mode t)
 (ido-everywhere 1)
+(ido-ubiquitous-mode 1)
 ;; Allow partial matches
 (setq ido-enable-flex-matching t)
 ;; Don't try to match file across all "work" directories; only match files
 ;; in the current directory displayed in the minibuffer
 (setq ido-auto-merge-work-directories-length -1)
-(ido-ubiquitous-mode 1)
 ;; Shows a list of buffers
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
@@ -206,7 +201,6 @@
 
 ;; projectile
 (projectile-mode +1)
-(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (setq projectile-project-search-path '("~/workspace/"))
 (setq projectile-globally-ignored-directories '("-/target"))
@@ -217,15 +211,5 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-
-;; Configure vendored packages.
-(add-to-list 'load-path "~/.emacs.d/vendor")
-
-(require 'marc-mode)
-
-(defun today ()
-  "Insert string for today's date, e.g., 2019 September 17."
-  (interactive)
-  (insert (format-time-string "%Y %B %e")))
 
 ;; Done.
