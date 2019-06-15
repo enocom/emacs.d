@@ -54,7 +54,7 @@ Here are the installed plugins:
 - [expand-region](https://github.com/magnars/expand-region.el) (See [Emacs Rocks Episode 9](http://emacsrocks.com/e09.html))
 - [ido-completing-read+](https://github.com/DarwinAwardWinner/ido-completing-read-plus)
 - [magit](https://magit.vc) (See [Emacs Rocks Episode 17](http://emacsrocks.com/e17.html))
-- [paredit](https://www.emacswiki.org/emacs/ParEdit) (See [Emacs Rocks Episode 14](http://emacsrocks.com/e14.html))
+- [paredit](https://www.emacswiki.org/emacs/ParEdit) (See [Emacs Rocks Episode 14](http://emacsrocks.com/e14.html) and [The Animated Guide to Paredit](http://danmidwood.com/content/2014/11/21/animated-paredit.html))
 - [projectile](https://www.projectile.mx/en/latest/)
 - [rainbow-delimiters](https://github.com/Fanael/rainbow-delimiters)
 - [smex](https://github.com/nonsequitur/smex)
