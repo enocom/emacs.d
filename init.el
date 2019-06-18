@@ -86,7 +86,7 @@
 ;; Make sure that text files are correctly formatted.
 (setq require-final-newline t)
 ;; Remove trailing whitespace on save.
-(add-hook 'after-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 ;; Changes all yes/no questions to y/n.
 (fset 'yes-or-no-p 'y-or-n-p)
 ;; Disable backup files.
