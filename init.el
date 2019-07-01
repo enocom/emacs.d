@@ -81,6 +81,8 @@
 
 ;; Go straight to scratch buffer on startup.
 (setq inhibit-startup-message t)
+;; Always select the help buffer on open.
+(setq help-window-select t)
 ;; Set fill column to 80 characters.
 (setq-default fill-column 80)
 ;; Make sure that text files are correctly formatted.
