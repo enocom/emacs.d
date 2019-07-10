@@ -158,6 +158,8 @@
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
 ;; When switching to the REPL, show it in the current window.
 (setq cider-repl-display-in-current-window t)
+;; Disable the Cider help message.
+(setq cider-repl-display-help-banner nil)
 
 ;; Configure clojure-mode.
 ;; Enable paredit for Clojure
