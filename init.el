@@ -177,7 +177,7 @@
    '("PATH")))
 
 ;; Configure expand-region
-(global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C-c n") 'er/expand-region)
 
 ;; Configure ido-completing-read+.
 (ido-mode t)
