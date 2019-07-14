@@ -13,7 +13,6 @@
     clojure-mode
     company
     expand-region
-    ido-completing-read+
     magit
     paredit
     projectile
@@ -183,7 +182,6 @@
 ;; Configure ido-completing-read+.
 (ido-mode t)
 (ido-everywhere 1)
-(ido-ubiquitous-mode 1)
 ;; Allow partial matches
 (setq ido-enable-flex-matching t)
 ;; Don't try to match file across all "work" directories; only match files
