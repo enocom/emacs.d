@@ -43,25 +43,19 @@
 
 ;; increase font size for better readability.
 (set-face-attribute 'default nil :height 150)
-;; Configure initial frame size on start.
-(setq initial-frame-alist '((top . 0)
-                            (left . 100)
-                            (width . 90)
-                            (height . 90)))
+;; Fullscreen by default, as early as possible.
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
 ;; Use a dark theme to be easy on the eyes.
 (load-theme 'tomorrow-night-eighties t)
-;; Use a transparent titlebar.
-;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-;; Turn off the menu bar.
+;; Turn off all the GUI bits.
+(when (window-system)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+  (tooltip-mode -1)
+  (fringe-mode -1))
 (menu-bar-mode -1)
-;; Turn off the toolbar.
-(when (fboundp 'tool-bar-mode)
-  (tool-bar-mode -1))
-;; Disable native scroll bars.
-(when (fboundp 'scroll-bar-mode)
-  (scroll-bar-mode -1))
 ;; Disable the blinking cursor.
 (blink-cursor-mode 0)
 ;; Highlight matching paren.
@@ -72,10 +66,8 @@
 (setq line-number-mode t)
 ;; Add column number to status bar.
 (setq column-number-mode t)
-;; Use emacs >= 26 global line numbers.
-(when (version<= "26.0.50" emacs-version )
-  (global-display-line-numbers-mode))
-(global-set-key (kbd "C-c l") 'global-display-line-numbers-mode)
+;; global line numbers.
+(global-display-line-numbers-mode)
 
 ;; 2. Behavioral configuration:
 
