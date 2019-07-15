@@ -108,12 +108,6 @@
 ;; Shows a list of buffers
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
-;; Save last position of point for visited buffers.
-(require 'saveplace)
-(setq-default save-place t)
-;; Keep track of saved places in ~/.emacs.d/places.
-(setq save-place-file (concat user-emacs-directory "places"))
-
 ;; Add a function to comment or uncomment a line.
 (defun toggle-comment-on-line ()
   "comment or uncomment current line"
