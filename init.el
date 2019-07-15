@@ -35,12 +35,11 @@
 
 ;; Configuration is grouped by built-in packages and then external
 ;; packages. The groups are:
-;; 1. *visual* configuration,
-;; 2. *behavioral* configuration,
-;; 3. *keyboard shortcut* configuration, and
-;; 4. *external package* configuration.
+;; - visual configuration,
+;; - behavioral configuration, and
+;; - package configuration.
 
-; 1. Visual configuration:
+; ** Visual configuration **
 
 ;; increase font size for better readability.
 (set-face-attribute 'default nil :height 150)
@@ -76,7 +75,7 @@
 ;; global line numbers.
 (global-display-line-numbers-mode)
 
-;; 2. Behavioral configuration:
+;; ** Behavioral configuration **
 
 ;; Go straight to scratch buffer on startup.
 (setq inhibit-startup-message t)
@@ -102,30 +101,10 @@
 (setq x-select-enable-clipboard t
       x-select-enable-primary t
       save-interprogram-paste-before-kill t)
-
-;; 3. Keyboard configuration:
-
-;; Shows a list of buffers
+;; Shows a list of buffers with ibuffer.
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
-;; Automatically load paredit when editing a lisp file.
-(autoload 'enable-paredit-mode "paredit"
-  "Turn on pseudo-structural editing of Lisp code." t)
-(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
-(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
-(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
-(add-hook 'lisp-mode-hook             #'enable-paredit-mode)
-(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
-(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
-
-;; Ivy et al. configuration.
-(global-set-key (kbd "C-s") 'swiper)
-(global-set-key (kbd "M-x") 'counsel-M-x)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
-(global-set-key (kbd "C-c C-r") 'ivy-resume)
-
-
-;; 4. External package configuration:
+;; ** Package configuration **
 
 ;; Configure ace-window.
 (global-set-key (kbd "M-o") 'ace-window)
@@ -179,13 +158,27 @@
 ;; Configure expand-region
 (global-set-key (kbd "C-c n") 'er/expand-region)
 
-;; Configure ivy
+;; Configure Ivy
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
 (setq ivy-count-format "(%d/%d) ")
+(global-set-key (kbd "C-s") 'swiper)
+(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "C-c C-r") 'ivy-resume)
 
 ;; magit
 (global-set-key (kbd "C-c g") 'magit-status)
+
+;; Paredit
+;; Automatically load paredit when editing a lisp file.
+(autoload 'enable-paredit-mode "paredit"
+  "Turn on pseudo-structural editing of Lisp code." t)
+(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 
 ;; projectile
 (projectile-mode +1)
