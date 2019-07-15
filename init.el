@@ -50,6 +50,14 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 ;; Use a dark theme to be easy on the eyes.
 (load-theme 'doom-one)
+;; Use a transparent menu bar.
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+ ;; Assumes a dark colorscheme.
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
+;; Removes icon from titlebar.
+(setq ns-use-proxy-icon nil)
+;; Removes file name from titlebar.
+(setq frame-title-format nil)
 ;; Turn off all the GUI bits.
 (when (window-system)
   (tool-bar-mode -1)
