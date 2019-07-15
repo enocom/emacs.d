@@ -21,7 +21,6 @@
     paredit
     projectile
     rainbow-delimiters
-    smex
     yaml-mode))
 ;; Ensure emacs shells start with the same environment as regular shells on
 ;; macOS.
@@ -207,12 +206,5 @@
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (setq projectile-project-search-path '("~/workspace/"))
 (setq projectile-globally-ignored-directories '("-/target"))
-
-;; Configure smex.
-(setq smex-save-file (concat user-emacs-directory ".smex-items"))
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; Done.
