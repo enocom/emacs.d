@@ -97,15 +97,7 @@
 
 ;; 3. Keyboard configuration:
 
-;; Bind hippie expand to user space shortcut.
-(global-set-key (kbd "C-c /") 'hippie-expand)
-;; Lisp-friendly hippie expand.
-(setq hippie-expand-try-functions-list
-      '(try-expand-dabbrev
-        try-expand-dabbrev-all-buffers
-        try-expand-dabbrev-from-kill
-        try-complete-lisp-symbol-partially
-        try-complete-lisp-symbol))
+;; Shows a list of buffers
 
 ;; Save last position of point for visited buffers.
 (require 'saveplace)
@@ -179,7 +171,7 @@
 ;; Configure expand-region
 (global-set-key (kbd "C-c n") 'er/expand-region)
 
-;; Configure ido-completing-read+.
+;; Configure ido-mode
 (ido-mode t)
 (ido-everywhere 1)
 ;; Allow partial matches
