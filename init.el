@@ -49,7 +49,7 @@
 ;; Fullscreen by default, as early as possible.
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 ;; Use a dark theme to be easy on the eyes.
-(load-theme 'doom-tomorrow-night)
+(load-theme 'doom-one)
 ;; Turn off all the GUI bits.
 (when (window-system)
   (tool-bar-mode -1)
