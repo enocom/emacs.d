@@ -7,7 +7,6 @@
   (package-refresh-contents))
 (defvar installed-packages
   '(ace-window
-    ag
     browse-kill-ring
     cider
     clojure-mode
