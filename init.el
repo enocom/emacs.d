@@ -20,6 +20,7 @@
     paredit
     projectile
     rainbow-delimiters
+    swiper ;; making ivy's implicit dependency explicit
     yaml-mode))
 ;; Ensure emacs shells start with the same environment as regular shells on
 ;; macOS.
