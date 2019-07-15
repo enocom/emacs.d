@@ -98,6 +98,7 @@
 ;; 3. Keyboard configuration:
 
 ;; Shows a list of buffers
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; Save last position of point for visited buffers.
 (require 'saveplace)
@@ -179,8 +180,6 @@
 ;; Don't try to match file across all "work" directories; only match files
 ;; in the current directory displayed in the minibuffer
 (setq ido-auto-merge-work-directories-length -1)
-;; Shows a list of buffers
-(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; magit
 (global-set-key (kbd "C-c g") 'magit-status)
