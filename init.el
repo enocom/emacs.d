@@ -14,6 +14,7 @@
     company
     counsel
     counsel-projectile
+    doom-themes
     expand-region
     ivy
     magit
@@ -47,10 +48,8 @@
 (set-face-attribute 'default nil :height 150)
 ;; Fullscreen by default, as early as possible.
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(add-to-list 'load-path "~/.emacs.d/themes")
 ;; Use a dark theme to be easy on the eyes.
-(load-theme 'tomorrow-night-eighties t)
+(load-theme 'doom-tomorrow-night)
 ;; Turn off all the GUI bits.
 (when (window-system)
   (tool-bar-mode -1)
