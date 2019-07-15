@@ -39,7 +39,7 @@ each piece of configuration does.
 This Emacs config attempts to be as minimal as possible while also preserving
 some creature-comforts of development. A more fully featured Emacs config worth
 trying is [Emacs Prelude](https://github.com/bbatsov/prelude). If you prefer a
-mind-bending and maximalist config, check out 
+mind-bending and maximalist config, check out
 [Emacs Live](https://github.com/overtone/emacs-live), a config built to support
 writing and performing music in Clojure.
 
@@ -51,8 +51,11 @@ Here are the installed plugins:
 - [CIDER](https://cider.mx)
 - [clojure-mode](https://github.com/clojure-emacs/clojure-mode/)
 - [company](http://company-mode.github.io)
+- [counsel](https://github.com/abo-abo/swiper)
+- [counsel-projectile](https://github.com/ericdanan/counsel-projectile)
+- [doom-themes](https://github.com/hlissner/emacs-doom-themes)
 - [expand-region](https://github.com/magnars/expand-region.el) (See [Emacs Rocks Episode 9](http://emacsrocks.com/e09.html))
-- [ido-completing-read+](https://github.com/DarwinAwardWinner/ido-completing-read-plus)
+- [ivy](https://github.com/abo-abo/swiper)
 - [magit](https://magit.vc) (See [Emacs Rocks Episode 17](http://emacsrocks.com/e17.html))
 - [paredit](https://www.emacswiki.org/emacs/ParEdit) (See [Emacs Rocks Episode 14](http://emacsrocks.com/e14.html) and [The Animated Guide to Paredit](http://danmidwood.com/content/2014/11/21/animated-paredit.html))
 - [projectile](https://www.projectile.mx/en/latest/)
