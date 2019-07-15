@@ -12,7 +12,10 @@
     cider
     clojure-mode
     company
+    counsel
+    counsel-projectile
     expand-region
+    ivy
     magit
     paredit
     projectile
@@ -123,6 +126,13 @@
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
 
+;; Ivy et al. configuration.
+(global-set-key (kbd "C-s") 'swiper)
+(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "C-c C-r") 'ivy-resume)
+
+
 ;; 4. External package configuration:
 
 ;; Configure ace-window.
@@ -163,6 +173,8 @@
 ;; Enable in all buffers.
 (add-hook 'after-init-hook 'global-company-mode)
 
+(counsel-projectile-mode 1)
+
 ;; Configure exec-path-from shell.
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize)
@@ -172,14 +184,10 @@
 ;; Configure expand-region
 (global-set-key (kbd "C-c n") 'er/expand-region)
 
-;; Configure ido-mode
-(ido-mode t)
-(ido-everywhere 1)
-;; Allow partial matches
-(setq ido-enable-flex-matching t)
-;; Don't try to match file across all "work" directories; only match files
-;; in the current directory displayed in the minibuffer
-(setq ido-auto-merge-work-directories-length -1)
+;; Configure ivy
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+(setq ivy-count-format "(%d/%d) ")
 
 ;; magit
 (global-set-key (kbd "C-c g") 'magit-status)
