@@ -11,7 +11,7 @@
     cider
     clojure-mode
     company
-    counsel
+    counsel ;; making ivy's implicit dependency explicit
     counsel-projectile
     doom-themes
     expand-region
@@ -35,11 +35,10 @@
 
 ;; Configuration is grouped by built-in packages and then external
 ;; packages. The groups are:
-;; - visual configuration,
-;; - behavioral configuration, and
-;; - package configuration.
+;; - built-in configuration,
+;; - external package configuration.
 
-; ** Visual configuration **
+; ** built-in configuration **
 
 ;; increase font size for better readability.
 (set-face-attribute 'default nil :height 150)
@@ -74,9 +73,6 @@
 (setq column-number-mode t)
 ;; global line numbers.
 (global-display-line-numbers-mode)
-
-;; ** Behavioral configuration **
-
 ;; Go straight to scratch buffer on startup.
 (setq inhibit-startup-message t)
 ;; Always select the help buffer on open.
@@ -104,7 +100,7 @@
 ;; Shows a list of buffers with ibuffer.
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
-;; ** Package configuration **
+;; ** external package configuration **
 
 ;; Configure ace-window.
 (global-set-key (kbd "M-o") 'ace-window)
