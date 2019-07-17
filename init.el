@@ -35,9 +35,7 @@
 (load custom-file :no-error)
 
 ;; Configuration is grouped by built-in packages and then external
-;; packages. The groups are:
-;; - built-in configuration,
-;; - external package configuration.
+;; packages.
 
 ; ** built-in configuration **
 
