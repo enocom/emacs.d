@@ -120,6 +120,8 @@
 (setq cider-repl-display-in-current-window t)
 ;; Disable the Cider help message.
 (setq cider-repl-display-help-banner nil)
+;; Just go to the symbol under the point; don't ask.
+(setq cider-prompt-for-symbol nil)
 
 ;; Configure clojure-mode.
 ;; Enable paredit for Clojure
