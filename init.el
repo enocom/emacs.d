@@ -99,6 +99,8 @@
       save-interprogram-paste-before-kill t)
 ;; Shows a list of buffers with ibuffer.
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+;; use better binding for goto-line
+(global-set-key (kbd "M-g") 'goto-line)
 
 ;; ** external package configuration **
 
