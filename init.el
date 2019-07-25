@@ -182,4 +182,18 @@
 (setq projectile-project-search-path '("~/workspace/"))
 (setq projectile-globally-ignored-directories '("-/target"))
 
+;; custom functions
+
+(defun toggle-theme ()
+  (interactive)
+  (if (eq (car custom-enabled-themes) 'doom-one)
+      (progn
+        (disable-theme 'doom-one)
+        (load-theme 'doom-solarized-light))
+    (progn
+      (disable-theme 'doom-solarized-light)
+      (enable-theme 'doom-one))))
+
+(global-set-key (kbd "C-c t") 'toggle-theme)
+
 ;; Done.
