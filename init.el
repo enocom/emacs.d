@@ -194,7 +194,7 @@
         (load-theme 'doom-solarized-light))
     (progn
       (disable-theme 'doom-solarized-light)
-      (enable-theme 'doom-one))))
+      (load-theme 'doom-one))))
 
 (global-set-key (kbd "C-c t") 'toggle-theme)
 
