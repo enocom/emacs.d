@@ -198,4 +198,6 @@
 
 (global-set-key (kbd "C-c t") 'toggle-theme)
 
+(global-set-key (kbd "C-c w") 'toggle-truncate-lines)
+
 ;; Done.
