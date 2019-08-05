@@ -45,7 +45,6 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 ;; Use a dark theme to be easy on the eyes.
 (load-theme 'doom-one)
-;; (load-theme 'doom-solarized-light)
 ;; Use a transparent menu bar.
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
  ;; Assumes a dark colorscheme.
@@ -191,9 +190,9 @@
   (if (eq (car custom-enabled-themes) 'doom-one)
       (progn
         (disable-theme 'doom-one)
-        (load-theme 'doom-solarized-light))
+        (load-theme 'doom-nord-light))
     (progn
-      (disable-theme 'doom-solarized-light)
+      (disable-theme 'doom-nord-light)
       (load-theme 'doom-one))))
 
 (global-set-key (kbd "C-c t") 'toggle-theme)
