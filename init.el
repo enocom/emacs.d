@@ -40,7 +40,9 @@
 ; ** built-in configuration **
 
 ;; increase font size for better readability.
-(set-face-attribute 'default nil :height 180)
+(set-face-attribute 'default nil
+                    :height 180
+                    :family "Monaco")
 ;; Fullscreen by default, as early as possible.
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 ;; Use a dark theme to be easy on the eyes.
