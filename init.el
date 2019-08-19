@@ -187,18 +187,6 @@
 
 ;; custom functions
 
-(defun toggle-theme ()
-  (interactive)
-  (if (eq (car custom-enabled-themes) 'doom-one)
-      (progn
-        (disable-theme 'doom-one)
-        (load-theme 'doom-nord-light))
-    (progn
-      (disable-theme 'doom-nord-light)
-      (load-theme 'doom-one))))
-
-(global-set-key (kbd "C-c t") 'toggle-theme)
-
 (global-set-key (kbd "C-c w") 'toggle-truncate-lines)
 
 ;; Done.
