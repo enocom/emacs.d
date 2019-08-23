@@ -39,6 +39,9 @@
 
 ; ** built-in configuration **
 
+;; prompt before killing emacs
+(setq confirm-kill-emacs 'yes-or-no-p)
+
 ;; increase font size for better readability.
 (set-face-attribute 'default nil
                     :height 180
