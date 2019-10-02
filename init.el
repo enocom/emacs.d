@@ -17,6 +17,7 @@
     expand-region
     ivy
     magit
+    markdown
     paredit
     projectile
     rainbow-delimiters
