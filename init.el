@@ -42,24 +42,23 @@
 
 ;; prompt before killing emacs
 (setq confirm-kill-emacs 'yes-or-no-p)
-
 ;; increase font size for better readability.
-(set-face-attribute 'default nil
-                    :height 150
-                    :family "Monaco")
+;; (set-face-attribute 'default nil
+;;                     :height 150
+;;                     :family "Monaco")
 ;; Fullscreen by default, as early as possible.
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
+; (add-to-list 'default-frame-alist '(fullscreen . maximized))
 ;; Use a dark theme to be easy on the eyes.
 (load-theme 'doom-one)
 ;; (load-theme 'doom-solarized-light)
 ;; Use a transparent menu bar.
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
  ;; Assumes a dark colorscheme.
-(add-to-list 'default-frame-alist '(ns-appearance . dark))
+; (add-to-list 'default-frame-alist '(ns-appearance . dark))
 ;; Removes icon from titlebar.
-(setq ns-use-proxy-icon nil)
+; (setq ns-use-proxy-icon nil)
 ;; Removes file name from titlebar.
-(setq frame-title-format nil)
+; (setq frame-title-format nil)
 ;; Turn off all the GUI bits.
 (when (window-system)
   (tool-bar-mode -1)
