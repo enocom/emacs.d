@@ -78,3 +78,12 @@ If Magit runs slow, try setting the full path to the git executable.
 ```
 M-x customize-var RET magit-git-executable RET
 ```
+
+If initial installation fails with:
+
+```
+Package `queue-0.2' is unavailable
+```
+
+try looking through the associated [issue](https://github.com/melpa/melpa/issues/2005)
+on Melpa.
