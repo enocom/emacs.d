@@ -18,9 +18,9 @@
     ivy
     magit
     markdown-mode
-    paredit
     projectile
     rainbow-delimiters
+    smartparens
     swiper ;; making ivy's implicit dependency explicit
     yaml-mode))
 ;; Ensure emacs shells start with the same environment as regular shells on
@@ -122,8 +122,8 @@
 (setq cider-show-error-buffer t)
 ;; Where to store the cider history.
 (setq cider-repl-history-file "~/.emacs.d/cider-history")
-;; Enable paredit in the REPL.
-(add-hook 'cider-repl-mode-hook 'paredit-mode)
+;; Enable smartparens in the REPL.
+(add-hook 'cider-repl-mode-hook 'smartparents-strict-mode)
 ;; When switching to the REPL, show it in the current window.
 (setq cider-repl-display-in-current-window t)
 ;; Disable the Cider help message.
@@ -132,8 +132,8 @@
 (setq cider-prompt-for-symbol nil)
 
 ;; Configure clojure-mode.
-;; Enable paredit for Clojure
-(add-hook 'clojure-mode-hook 'enable-paredit-mode)
+;; Enable smartparns for Clojure
+(add-hook 'clojure-mode-hook 'smartparens-strict-mode)
 ;; Enable Rainbow delimiters mode
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 ;; This is useful for working with camel-case tokens, like names of
@@ -173,22 +173,21 @@
 ;; magit
 (global-set-key (kbd "C-c g") 'magit-status)
 
-;; Paredit
-;; Automatically load paredit when editing a lisp file.
-(autoload 'enable-paredit-mode "paredit"
-  "Turn on pseudo-structural editing of Lisp code." t)
-(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
-(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
-(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
-(add-hook 'lisp-mode-hook             #'enable-paredit-mode)
-(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
-
 ;; projectile
 (projectile-mode +1)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (setq projectile-project-search-path '("~/workspace/"))
 (setq projectile-globally-ignored-directories '("-/target"))
 (setq projectile-completion-system 'ivy)
+
+;; smartparens
+(require 'smartparens-config)
+(add-hook 'emacs-lisp-mode-hook #'smartparens-strict-mode)
+(global-set-key (kbd "C-c h") 'sp-backward-slurp-sexp)
+(global-set-key (kbd "C-c j") 'sp-backward-barf-sexp)
+(global-set-key (kbd "C-c k") 'sp-forward-barf-sexp)
+(global-set-key (kbd "C-c l") 'sp-forward-slurp-sexp)
+
 
 ;; custom functions
 
