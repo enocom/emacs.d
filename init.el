@@ -40,32 +40,36 @@
 
 ; ** built-in configuration **
 
-;; prompt before killing emacs
-(setq confirm-kill-emacs 'yes-or-no-p)
-;; increase font size for better readability.
-;; (set-face-attribute 'default nil
-;;                     :height 150
-;;                     :family "Monaco")
-;; Fullscreen by default, as early as possible.
-; (add-to-list 'default-frame-alist '(fullscreen . maximized))
 ;; Use a dark theme to be easy on the eyes.
 (load-theme 'doom-one)
-;; (load-theme 'doom-solarized-light)
-;; Use a transparent menu bar.
-; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
- ;; Assumes a dark colorscheme.
-; (add-to-list 'default-frame-alist '(ns-appearance . dark))
-;; Removes icon from titlebar.
-; (setq ns-use-proxy-icon nil)
-;; Removes file name from titlebar.
-; (setq frame-title-format nil)
-;; Turn off all the GUI bits.
+;; prompt before killing emacs
+(setq confirm-kill-emacs 'yes-or-no-p)
+;; When running the Emacs in standalone mode:
 (when (window-system)
+  ;; Turn off the toolbar
   (tool-bar-mode -1)
+  ;; Turn off the scrollbar
   (scroll-bar-mode -1)
+  ;; Turn off the tool tips
   (tooltip-mode -1)
-  (fringe-mode -1))
-(menu-bar-mode -1)
+  ;; Turn off the small fringe around the frame.
+  (fringe-mode -1)
+  ;; increase font size for better readability.
+  (set-face-attribute 'default nil
+                      :height 150
+                      :family "Monaco")
+  ;; Fullscreen by default, as early as possible.
+  (add-to-list 'default-frame-alist '(fullscreen . maximized))
+  ;; Use a transparent menu bar.
+  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+  ;; Assumes a dark colorscheme.
+  (add-to-list 'default-frame-alist '(ns-appearance . dark))
+  ;; Removes icon from titlebar.
+  (setq ns-use-proxy-icon nil)
+  ;; Removes file name from titlebar.
+  (setq frame-title-format nil))
+;; Turn off the menu bar
+(menu-bar-mode 0)
 ;; Disable the blinking cursor.
 (blink-cursor-mode 0)
 ;; Highlight matching paren.
