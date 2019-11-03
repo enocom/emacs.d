@@ -25,7 +25,8 @@
     smartparens
     solarized-theme
     swiper ;; making ivy's implicit dependency explicit
-    yaml-mode))
+    yaml-mode
+    zenburn-theme))
 ;; Ensure emacs shells start with the same environment as regular shells on
 ;; macOS.
 (if (eq system-type 'darwin)
