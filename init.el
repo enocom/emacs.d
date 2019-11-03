@@ -130,7 +130,7 @@
 ;; Where to store the cider history.
 (setq cider-repl-history-file "~/.emacs.d/cider-history")
 ;; Enable smartparens in the REPL.
-(add-hook 'cider-repl-mode-hook 'smartparents-strict-mode)
+(add-hook 'cider-repl-mode-hook 'smartparens-strict-mode)
 ;; When switching to the REPL, show it in the current window.
 (setq cider-repl-display-in-current-window t)
 ;; Disable the Cider help message.
