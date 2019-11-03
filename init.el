@@ -1,5 +1,8 @@
 ;; Use package to install external packages.
 (require 'package)
+;; FIXME(eno): Delete the following TLS configuration once v.27.1 is released.
+;; See: https://debbugs.gnu.org/cgi/bugreport.cgi?bug=34341
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 (add-to-list 'package-archives
              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (package-initialize)
