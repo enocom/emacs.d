@@ -13,7 +13,6 @@
     company
     counsel ;; making ivy's implicit dependency explicit
     counsel-projectile
-    doom-themes
     expand-region
     ivy
     magit
@@ -21,6 +20,7 @@
     projectile
     rainbow-delimiters
     smartparens
+    solarized-theme
     swiper ;; making ivy's implicit dependency explicit
     yaml-mode))
 ;; Ensure emacs shells start with the same environment as regular shells on
@@ -53,7 +53,7 @@
   ;; Turn off the small fringe around the frame.
   (fringe-mode -1)
   ;; Use a dark theme to be easy on the eyes.
-  (load-theme 'doom-one)
+  (load-theme 'solarized-dark)
   ;; increase font size for better readability.
   (set-face-attribute 'default nil
                       :height 150
