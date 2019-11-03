@@ -70,3 +70,11 @@ Here are the installed plugins:
 - [Mastering Emacs](https://www.masteringemacs.org)
 - [Emacs Official Manual](https://www.gnu.org/software/emacs/manual/html_node/emacs/index.html)
 - [Emacs Wiki](https://www.emacswiki.org)
+
+## Addendum
+
+If Magit runs slow, try setting the full path to the git executable.
+
+```
+M-x customize-var RET magit-git-executable RET
+```
