@@ -52,7 +52,6 @@ Here are the installed plugins:
 - [company](http://company-mode.github.io)
 - [counsel](https://github.com/abo-abo/swiper)
 - [counsel-projectile](https://github.com/ericdanan/counsel-projectile)
-- [doom-themes](https://github.com/hlissner/emacs-doom-themes)
 - [expand-region](https://github.com/magnars/expand-region.el) (See [Emacs Rocks Episode 9](http://emacsrocks.com/e09.html))
 - [ivy](https://github.com/abo-abo/swiper)
 - [magit](https://magit.vc) (See [Emacs Rocks Episode 17](http://emacsrocks.com/e17.html))
@@ -60,6 +59,7 @@ Here are the installed plugins:
 - [projectile](https://www.projectile.mx/en/latest/)
 - [rainbow-delimiters](https://github.com/Fanael/rainbow-delimiters)
 - [smartparens](https://github.com/Fuco1/smartparens)
+- [solarized-theme](https://github.com/bbatsov/solarized-emacs)
 - [swiper](https://github.com/abo-abo/swiper)
 - [yaml-mode](https://github.com/yoshiki/yaml-mode)
 
