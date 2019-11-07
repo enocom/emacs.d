@@ -43,7 +43,8 @@
 ;; packages.
 
 ; ** built-in configuration **
-
+;; Use a dark theme to be easy on the eyes.
+(load-theme 'solarized-dark)
 ;; prompt before killing emacs
 (setq confirm-kill-emacs 'yes-or-no-p)
 ;; When running the Emacs in standalone mode:
@@ -56,8 +57,6 @@
   (tooltip-mode -1)
   ;; Turn off the small fringe around the frame.
   (fringe-mode -1)
-  ;; Use a dark theme to be easy on the eyes.
-  (load-theme 'solarized-dark)
   ;; increase font size for better readability.
   (set-face-attribute 'default nil
                       :height 150
