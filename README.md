@@ -87,3 +87,8 @@ Package `queue-0.2' is unavailable
 
 try looking through the associated [issue](https://github.com/melpa/melpa/issues/2005)
 on Melpa.
+
+When running GUI emacs on macOS Catalina, one must permit emacs access to folders like
+`Desktop`, `Documents`, and so on.
+See [this gist](https://gist.github.com/enocom/4b37af75a6e161017f2e807f346a2d53)
+for more.
