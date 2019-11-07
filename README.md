@@ -90,5 +90,4 @@ on Melpa.
 
 When running GUI emacs on macOS Catalina, one must permit emacs access to folders like
 `Desktop`, `Documents`, and so on.
-See [this gist](https://gist.github.com/enocom/4b37af75a6e161017f2e807f346a2d53)
-for more.
+See [the answer here](https://emacs.stackexchange.com/a/53037) for how to do so.
