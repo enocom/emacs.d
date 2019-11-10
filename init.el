@@ -194,7 +194,8 @@
 (global-set-key (kbd "C-c j") 'sp-backward-barf-sexp)
 (global-set-key (kbd "C-c k") 'sp-forward-barf-sexp)
 (global-set-key (kbd "C-c l") 'sp-forward-slurp-sexp)
-
+(global-set-key (kbd "C-c r") 'sp-splice-sexp-killing-backward)
+(global-set-key (kbd "C-c s") 'sp-splice-sexp)
 
 ;; custom functions
 
