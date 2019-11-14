@@ -155,6 +155,8 @@
 (add-hook 'after-init-hook 'global-company-mode)
 ;; Show numbers alongside the completion dialoge. Select with M-<number>.
 (setq company-show-numbers t)
+;; Stop downcasing auto-completion results
+(setq company-dabbrev-downcase nil)
 
 ;; Enable counsel-projectile to get an Ivy-like interface in projectile.
 (counsel-projectile-mode 1)
