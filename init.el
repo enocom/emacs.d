@@ -196,6 +196,7 @@
 (global-set-key (kbd "C-c l") 'sp-forward-slurp-sexp)
 (global-set-key (kbd "C-c r") 'sp-splice-sexp-killing-backward)
 (global-set-key (kbd "C-c s") 'sp-splice-sexp)
+(global-set-key (kbd "M-q") 'sp-indent-defun)
 
 ;; custom functions
 
