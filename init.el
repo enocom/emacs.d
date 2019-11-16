@@ -207,4 +207,6 @@
 
 (global-set-key (kbd "C-c w") 'toggle-truncate-lines)
 
+;; setting indent levels as they bother me.
+(setq js-indent-level 2)
 ;; Done.
