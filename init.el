@@ -17,6 +17,8 @@
     counsel ;; making ivy's implicit dependency explicit
     counsel-projectile
     expand-region
+    flycheck
+    flycheck-clj-kondo
     ivy
     magit
     markdown-mode
@@ -169,6 +171,9 @@
 
 ;; Configure expand-region
 (global-set-key (kbd "C-c n") 'er/expand-region)
+
+;; Enable clj-kondo flychecking
+(require 'flycheck-clj-kondo)
 
 ;; Configure Ivy
 (ivy-mode 1)
