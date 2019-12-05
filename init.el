@@ -1,4 +1,12 @@
+;;; package -- A minimal but useful config for Clojure.
+;;;
+;;; Commentary:
+;;;
+;;; Here is a well annotated Emacs configuration optimal for writing Clojure.
+;;; Code:
+
 ;; Use package to install external packages.
+
 (require 'package)
 ;; FIXME(eno): Delete the following TLS configuration once v.27.1 is released.
 ;; See: https://debbugs.gnu.org/cgi/bugreport.cgi?bug=34341
@@ -214,4 +222,6 @@
 
 ;; setting indent levels as they bother me.
 (setq js-indent-level 2)
-;; Done.
+
+(provide 'init)
+;;; init.el ends here
