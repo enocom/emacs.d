@@ -117,8 +117,8 @@
 ;; smart tab behavior - indent or complete
 (setq tab-always-indent 'complete)
 ;; Configure kill-ring to integrate with copy/paste.
-(setq x-select-enable-clipboard t
-      x-select-enable-primary t
+(setq select-enable-clipboard t
+      select-enable-primary t
       save-interprogram-paste-before-kill t)
 ;; Delete the selection with a keypress.
 (delete-selection-mode t)
