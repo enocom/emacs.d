@@ -1,4 +1,4 @@
-;;; package -- A minimal but useful config for Clojure.
+;;; init.el -- A minimal but useful config for Clojure.
 ;;;
 ;;; Commentary:
 ;;;
@@ -90,6 +90,8 @@
 (setq line-number-mode t)
 ;; Add column number to status bar.
 (setq column-number-mode t)
+;; Add size of file to status bar.
+(size-indication-mode t)
 ;; global line numbers.
 (global-display-line-numbers-mode)
 ;; Go straight to scratch buffer on startup.
@@ -112,10 +114,16 @@
 (setq ring-bell-function 'ignore)
 ;; Don't use hard tabs.
 (setq-default indent-tabs-mode nil)
+;; smart tab behavior - indent or complete
+(setq tab-always-indent 'complete)
 ;; Configure kill-ring to integrate with copy/paste.
 (setq x-select-enable-clipboard t
       x-select-enable-primary t
       save-interprogram-paste-before-kill t)
+;; Delete the selection with a keypress.
+(delete-selection-mode t)
+;; Revert buffers automatically when underlying files are changed externally.
+(global-auto-revert-mode t)
 ;; Shows a list of buffers with ibuffer.
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 ;; use better binding for goto-line
