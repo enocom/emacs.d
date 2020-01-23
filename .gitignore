@@ -12,3 +12,4 @@ projectile.cache
 .emacs.desktop.lock
 custom.el
 /recentf
+/transient/
