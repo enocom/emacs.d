@@ -34,6 +34,17 @@ Once you're comfortable moving around Emacs and doing basic editing, try reading
 through [init.el](init.el), which is copiously annotated with explanations of what
 each piece of configuration does.
 
+## Running in iTerm2
+
+It is possible to run emacs in a terminal with nice looking colors.
+
+To do so, you need to configure TrueColor support.
+
+See [this question and answer][truecolor-q] and the associated [Emacs commit][emacs-truecolor].
+
+[truecolor-q]: https://emacs.stackexchange.com/questions/32506/conditional-true-color-24-bit-color-support-for-iterm2-and-terminal-app-in-osx
+[emacs-truecolor]: https://github.com/emacs-mirror/emacs/commit/e463e5762bbe628be3d15da066a90f079a8468b3
+
 ## Installed Plugins
 
 This Emacs config attempts to be as minimal as possible while also preserving
