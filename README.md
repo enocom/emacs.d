@@ -54,8 +54,11 @@ To do so, you need to configure TrueColor support.
 
 See [this question and answer][truecolor-q] and the associated [Emacs commit][emacs-truecolor].
 
+For some context on TrueColor and its support, see [this gist][truecolor-gist].
+
 [truecolor-q]: https://emacs.stackexchange.com/questions/32506/conditional-true-color-24-bit-color-support-for-iterm2-and-terminal-app-in-osx
 [emacs-truecolor]: https://github.com/emacs-mirror/emacs/commit/e463e5762bbe628be3d15da066a90f079a8468b3
+[truecolor-gist]: https://gist.github.com/XVilka/8346728
 
 ## Installed Plugins
 
