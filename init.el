@@ -9,7 +9,10 @@
 
 (require 'package)
 (add-to-list 'package-archives
-             (cons "melpa-stable" "https://stable.melpa.org/packages/" ) t)
+             ;; Swap the following two lines to opt in to melpa stable.
+             ;; (cons "melpa-stable" "https://stable.melpa.org/packages/" )
+             (cons "melpa" "https://melpa.org/packages/" )
+             t)
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
