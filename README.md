@@ -36,6 +36,18 @@ each piece of configuration does.
 
 ## Running in iTerm2
 
+First, rather than installing the GUI version above, install emacs with:
+
+```
+brew install emacs
+```
+
+From there, it's possible to start emacs with just the command:
+
+```
+emacs # no -nw here
+```
+
 It is possible to run emacs in a terminal with nice looking colors.
 
 To do so, you need to configure TrueColor support.
