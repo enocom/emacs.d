@@ -24,6 +24,7 @@
     company
     counsel ;; making ivy's implicit dependency explicit
     counsel-projectile
+    doom-themes
     expand-region
     flycheck
     flycheck-clj-kondo
@@ -54,7 +55,7 @@
 
 ; ** built-in configuration **
 ;; Use a dark theme to be easy on the eyes.
-(load-theme 'solarized-dark)
+(load-theme 'doom-one)
 ;; prompt before killing emacs
 (setq confirm-kill-emacs 'yes-or-no-p)
 ;; When running the Emacs in standalone mode:
