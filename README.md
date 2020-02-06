@@ -43,7 +43,7 @@ After installing Node.JS, run the following commands:
 
 ```
 npm install -g typescript
-npm install -g typescript-langauge-server
+npm install -g typescript-language-server
 npm install -g prettier
 ```
 
