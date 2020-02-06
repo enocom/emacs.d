@@ -22,6 +22,7 @@
     cider
     clojure-mode
     company
+    company-lsp
     counsel ;; making ivy's implicit dependency explicit
     counsel-projectile
     doom-themes
@@ -29,13 +30,17 @@
     flycheck
     flycheck-clj-kondo
     ivy
+    lsp-mode
+    lsp-ui
     magit
     markdown-mode
+    prettier-js
     projectile
     rainbow-delimiters
     smartparens
     solarized-theme
     swiper ;; making ivy's implicit dependency explicit
+    typescript-mode
     yaml-mode
     zenburn-theme))
 ;; Ensure emacs shells start with the same environment as regular shells on
@@ -176,6 +181,10 @@
 (setq company-show-numbers t)
 ;; Stop downcasing auto-completion results
 (setq company-dabbrev-downcase nil)
+;; company-lsp
+(setq company-lsp-cache-candidates t)
+(require 'company-lsp)
+(push 'company-lsp company-backends)
 
 ;; Enable counsel-projectile to get an Ivy-like interface in projectile.
 (counsel-projectile-mode 1)
@@ -201,8 +210,19 @@
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 
+;; lsp
+(setq lsp-prefer-flymake nil)
+(setq lsp-enable-on-type-formatting t)
+(setq lsp-before-save-edits t)
+;; lsp-ui
+(add-hook 'lsp-mode-hook 'lsp-ui-mode)
+
 ;; magit
 (global-set-key (kbd "C-c g") 'magit-status)
+
+;; prettier
+;; npm install -g prettier
+(add-hook 'typescript-mode-hook 'prettier-js-mode)
 
 ;; projectile
 (projectile-mode +1)
@@ -224,6 +244,11 @@
 (global-set-key (kbd "C-M-f") 'sp-forward-sexp)
 (global-set-key (kbd "C-M-b") 'sp-backward-sexp)
 
+;; typescript-mode
+;; Note: Must install `npm install -g typescript-language-server` and
+;;       `npm install -g typescript`
+(add-hook 'typescript-mode-hook 'lsp)
+
 
 ;; custom functions
 
@@ -231,6 +256,7 @@
 
 ;; setting indent levels as they bother me.
 (setq js-indent-level 2)
+(setq ts-indent-level 2)
 
 (provide 'init)
 ;;; init.el ends here
