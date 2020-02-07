@@ -73,35 +73,6 @@ For some context on TrueColor and its support, see [this gist][truecolor-gist].
 [emacs-truecolor]: https://github.com/emacs-mirror/emacs/commit/e463e5762bbe628be3d15da066a90f079a8468b3
 [truecolor-gist]: https://gist.github.com/XVilka/8346728
 
-## Installed Plugins
-
-This Emacs config attempts to be as minimal as possible while also preserving
-some creature-comforts of development. A more fully featured Emacs config worth
-trying is [Emacs Prelude](https://github.com/bbatsov/prelude). If you prefer a
-mind-bending and maximalist config, check out
-[Emacs Live](https://github.com/overtone/emacs-live), a config built to support
-writing and performing music in Clojure.
-
-Here are the installed plugins:
-
-- [ace-window](https://github.com/abo-abo/ace-window)
-- [browse-kill-ring](https://github.com/browse-kill-ring/browse-kill-ring)
-- [CIDER](https://cider.mx)
-- [clojure-mode](https://github.com/clojure-emacs/clojure-mode/)
-- [company](http://company-mode.github.io)
-- [counsel](https://github.com/abo-abo/swiper)
-- [counsel-projectile](https://github.com/ericdanan/counsel-projectile)
-- [expand-region](https://github.com/magnars/expand-region.el) (See [Emacs Rocks Episode 9](http://emacsrocks.com/e09.html))
-- [ivy](https://github.com/abo-abo/swiper)
-- [magit](https://magit.vc) (See [Emacs Rocks Episode 17](http://emacsrocks.com/e17.html))
-- [markdown-mode](https://github.com/jrblevin/markdown-mode)
-- [projectile](https://www.projectile.mx/en/latest/)
-- [rainbow-delimiters](https://github.com/Fanael/rainbow-delimiters)
-- [smartparens](https://github.com/Fuco1/smartparens)
-- [solarized-theme](https://github.com/bbatsov/solarized-emacs)
-- [swiper](https://github.com/abo-abo/swiper)
-- [yaml-mode](https://github.com/yoshiki/yaml-mode)
-
 ## Where to Go Next
 
 - [Emacs is Sexy](https://emacs.sexy)
