@@ -199,6 +199,7 @@
 (global-set-key (kbd "C-c n") 'er/expand-region)
 
 ;; Enable clj-kondo flychecking
+(global-flycheck-mode)
 (require 'flycheck-clj-kondo)
 
 ;; Configure Ivy
