@@ -29,6 +29,7 @@
     expand-region
     flycheck
     flycheck-clj-kondo
+    go-mode
     ivy
     lsp-mode
     lsp-ui
