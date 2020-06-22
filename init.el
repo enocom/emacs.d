@@ -35,13 +35,11 @@
     lsp-ui
     magit
     markdown-mode
-    prettier-js
     projectile
     rainbow-delimiters
     smartparens
     solarized-theme
     swiper ;; making ivy's implicit dependency explicit
-    typescript-mode
     yaml-mode
     zenburn-theme))
 ;; Ensure emacs shells start with the same environment as regular shells on
@@ -221,10 +219,6 @@
 
 ;; magit
 (global-set-key (kbd "C-c g") 'magit-status)
-
-;; prettier
-;; npm install -g prettier
-(add-hook 'typescript-mode-hook 'prettier-js-mode)
 
 ;; projectile
 (projectile-mode +1)

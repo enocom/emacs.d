@@ -34,19 +34,6 @@ Once you're comfortable moving around Emacs and doing basic editing, try reading
 through [init.el](init.el), which is copiously annotated with explanations of what
 each piece of configuration does.
 
-## Configuring TypeScript and Prettier Support
-
-This config includes a TypeScript and Prettier mode. To get both working, one
-must have Node.JS installed as well as several global Node packages.
-
-After installing Node.JS, run the following commands:
-
-```
-npm install -g typescript
-npm install -g typescript-language-server
-npm install -g prettier
-```
-
 ## Running in iTerm2
 
 First, rather than installing the GUI version above, install emacs with:
